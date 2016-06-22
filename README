@@ -44,7 +44,7 @@ Transfer the root file system (core-image-minimal just compiled)
 In order to transfer the image to a SD card, plug a SD card reader with your SD on HOST PC and follow the next steps changing sdX for your detected device:
 
 	cd $HOME/yocto-krogoth-smarc/build_mx6qroj/tmp/deploy/images/mx6qroj
-	gunzip -k core-image-minimal-mx6qroj-xxxxxxxxxxxxxx.rootfs.sdcard.gz (*4)
+	gunzip -k core-image-minimal-mx6qroj-xxxxxxxxxxxxxx.rootfs.sdcard.gz
 	sudo dd if=core-image-minimal-mx6qroj-xxxxxxxxxxxxxx.rootfs.sdcard of=/dev/sdX bs=10M
 	sync
 2) eMMC
