@@ -1,0 +1,61 @@
+
+Steps to preparing the HOST PC and install Yocto:
+
+1) download Ubuntu 14.04.4
+2) download VirtualBox and setup Virtual Machine (VM)
+3) install Ubuntu 14.04.4 in your VM
+4) check that VM is connected to internet (mandatory)
+5) install git with the command: sudo apt-get install git
+6) clone tools repo with the command: git clone https://github.com/ROJ-ITALY/tools.git -b krogoth (*1)
+7) change dir to tools (cd tools) and run these scripts in this order:
+	a) ./download_packages
+	b) ./create-yocto-krogoth-smarc (*2)
+
+Steps to configuring Yocto first time:
+
+1) set up the right environment for the build:
+	a) cd $HOME/yocto-krogoth-smarc
+	b) MACHINE=mx6qroj source ./setup-environment build_mx6qroj (*3)
+2) add the "meta-roj-platform" (BSP roj layer) as shown below:
+	a) gedit conf/bblayers.conf
+	b) BBLAYERS = " \
+  		${BSPDIR}/sources/poky/meta \
+		${BSPDIR}/sources/poky/meta-yocto \
+		\
+		${BSPDIR}/sources/meta-openembedded/meta-oe \
+		${BSPDIR}/sources/meta-openembedded/meta-multimedia \
+		\
+		${BSPDIR}/sources/meta-fsl-arm \
+		${BSPDIR}/sources/meta-fsl-arm-extra \
+		${BSPDIR}/sources/meta-fsl-demos \
+		\
+		${BSPDIR}/sources/meta-roj-platform \
+		"
+
+Steps to build your first image:
+
+Now that you're ready to start the compilation. Launch the build of the three basic componets of a linux system: bootloader, kernel, filesystem. This build includes many tasks and the first time will take about 1 hour on a virtual machine based on an i7 CPU.
+In your Yocto environment, run the command: bitbake core-image-minmal
+Once the build finished, you will find the output images under: $HOME/yocto-krogoth-smarc/build_mx6qroj/tmp/deploy/images/mx6qroj
+
+Transfer the root file system (core-image-minimal just compiled)
+
+1) SD
+In order to transfer the image to a SD card, plug a SD card reader with your SD on HOST PC and follow the next steps changing sdX for your detected device:
+
+	cd $HOME/yocto-krogoth-smarc/build_mx6qroj/tmp/deploy/images/mx6qroj
+	gunzip -k core-image-minimal-mx6qroj-xxxxxxxxxxxxxx.rootfs.sdcard.gz (*4)
+	sudo dd if=core-image-minimal-mx6qroj-xxxxxxxxxxxxxx.rootfs.sdcard of=/dev/sdX bs=10M
+	sync
+2) eMMC
+In order to transfer the image to eMMC, you can use Manufacturing Tool customized for our iMx6 platforms (quad/dual and solo) by ROJ.
+
+---------------------	
+Note:
+(*1) tools dir contains some useful shell scripts in order to prepare the Host system to use Yocto Project.
+(*2) in the future, in order to update the "meta layers", it'll be sufficient run the script "update-yocto-krogoth-smarc" present in tools directory.
+(*3) in order to compile for SMARC based on "iMx6 solo" use this command: MACHINE=mx6sroj source ./setup-environment build_mx6sroj. ATTENTION: You have to specify MACHINE name just the first time.
+
+---------------------
+
+(c) 2016, Stefano Gurrieri, ROJ

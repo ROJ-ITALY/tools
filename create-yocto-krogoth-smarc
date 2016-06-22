@@ -1,0 +1,52 @@
+#! /bin/sh
+#
+# Creates a new build tree for Yocto Project
+#
+
+BRANCH=krogoth
+DEST=${HOME}/yocto-${BRANCH}-smarc
+
+mkdir ${DEST}
+cd ${DEST}
+mkdir sources
+cd sources
+
+echo "Clone repositories."
+
+echo "Clone poky. Wait..."
+git clone git://git.yoctoproject.org/poky.git -b ${BRANCH}
+echo "Cloned."
+
+echo "Clone meta-openembedded. Wait..."
+git clone git://git.openembedded.org/meta-openembedded -b ${BRANCH}
+echo "Cloned."
+
+echo "Clone fsl-arm. Wait..."
+git clone https://github.com/Freescale/meta-fsl-arm.git -b ${BRANCH}
+echo "Cloned."
+
+echo "Clone fsl-arm-extra. Wait..."
+git clone https://github.com/Freescale/meta-fsl-arm-extra.git -b ${BRANCH}
+echo "Cloned."
+
+echo "Clone fsl-demos. Wait..."
+git clone https://github.com/Freescale/meta-fsl-demos.git -b ${BRANCH}
+echo "Cloned."
+
+echo "Clone fsl-community-bsp-base. Wait..."
+git clone https://github.com/Freescale/fsl-community-bsp-base.git -b ${BRANCH}
+mkdir base
+cp -R fsl-community-bsp-base/* base/
+cp base/README ../README
+cp base/setup-environment ../setup-environment
+echo "Cloned."
+
+echo "Clone meta-qt5. Wait..."
+git clone https://github.com/meta-qt5/meta-qt5.git -b ${BRANCH}
+echo "Cloned."
+
+echo "Clone meta-roj-platform. Wait..."
+git clone https://github.com/ROJ-ITALY/meta-roj-platform.git -b ${BRANCH}
+echo "Cloned."
+
+echo "Clone repositories end."
