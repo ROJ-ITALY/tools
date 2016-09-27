@@ -35,7 +35,7 @@ Steps to configuring Yocto first time:
 Steps to build your first image:
 
 Now that you're ready to start the compilation. Launch the build of the three basic componets of a linux system: bootloader, kernel, filesystem. This build includes many tasks and the first time will take about 1 hour on a virtual machine based on an i7 CPU.
-In your Yocto environment, run the command: bitbake core-image-minmal
+In your Yocto environment, run the command: bitbake core-image-minimal
 Once the build finished, you will find the output images under: $HOME/yocto-krogoth-smarc/build_mx6qroj/tmp/deploy/images/mx6qroj
 
 Transfer the root file system (core-image-minimal just compiled)
