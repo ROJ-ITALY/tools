@@ -15,26 +15,44 @@ echo "Clone repositories."
 
 echo "Clone poky. Wait..."
 git clone git://git.yoctoproject.org/poky.git -b ${BRANCH}
+cd poky
+git checkout 4376fb851791a1fb514873ad239d516dd7159341
+cd ..
 echo "Cloned."
 
 echo "Clone meta-openembedded. Wait..."
 git clone git://git.openembedded.org/meta-openembedded -b ${BRANCH}
+cd meta-openembedded
+git checkout 247b1267bbe95719cd4877d2d3cfbaf2a2f4865a
+cd ..
 echo "Cloned."
 
 echo "Clone fsl-arm. Wait..."
 git clone https://github.com/Freescale/meta-fsl-arm.git -b ${BRANCH}
+cd meta-fsl-arm
+git checkout 3f34509381092a893b8efe4451018b8d67a5abf6
+cd ..
 echo "Cloned."
 
 echo "Clone fsl-arm-extra. Wait..."
 git clone https://github.com/Freescale/meta-fsl-arm-extra.git -b ${BRANCH}
+cd meta-fsl-arm-extra
+git checkout 698cf389aa446244a39b597fbf58be1d55096500
+cd ..
 echo "Cloned."
 
 echo "Clone fsl-demos. Wait..."
 git clone https://github.com/Freescale/meta-fsl-demos.git -b ${BRANCH}
+cd meta-fsl-demos
+git checkout 7e4237db1f48cbbde776b17a66d71def14e3809e
+cd ..
 echo "Cloned."
 
 echo "Clone fsl-community-bsp-base. Wait..."
 git clone https://github.com/Freescale/fsl-community-bsp-base.git -b ${BRANCH}
+cd fsl-community-bsp-base
+git checkout 3f3f63f5dd6bc62cbe7ea8ba779a07754bec4584
+cd ..
 mkdir base
 cp -R fsl-community-bsp-base/* base/
 cp base/README ../README
@@ -43,10 +61,16 @@ echo "Cloned."
 
 echo "Clone meta-qt5. Wait..."
 git clone https://github.com/meta-qt5/meta-qt5.git -b ${BRANCH}
+cd meta-qt5
+git checkout d715f2c1d340fa38f8a9860acc73de5e14a38b75
+cd ..
 echo "Cloned."
 
 echo "Clone meta-roj-platform. Wait..."
 git clone https://github.com/ROJ-ITALY/meta-roj-platform.git -b ${BRANCH}
+cd meta-roj-platform
+git checkout 7051126d03655008b7882704530c25217b28061c
+cd ..
 echo "Cloned."
 
 echo "Clone repositories end."
