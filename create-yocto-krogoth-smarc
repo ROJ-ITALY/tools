@@ -16,21 +16,21 @@ echo "Clone repositories."
 echo "Clone poky. Wait..."
 git clone git://git.yoctoproject.org/poky.git -b ${BRANCH}
 cd poky
-git checkout 4376fb851791a1fb514873ad239d516dd7159341
+git checkout e8898f018862e7e398ea84732a11630e30fb2ceb
 cd ..
 echo "Cloned."
 
 echo "Clone meta-openembedded. Wait..."
 git clone git://git.openembedded.org/meta-openembedded -b ${BRANCH}
 cd meta-openembedded
-git checkout 247b1267bbe95719cd4877d2d3cfbaf2a2f4865a
+git checkout 2092396f0e4fd3891b398c7180528aba67e1d522
 cd ..
 echo "Cloned."
 
 echo "Clone fsl-arm. Wait..."
 git clone https://github.com/Freescale/meta-fsl-arm.git -b ${BRANCH}
 cd meta-fsl-arm
-git checkout 3f34509381092a893b8efe4451018b8d67a5abf6
+git checkout a3a91dc1ef6d1dc42e284248b09dd474ba2cef80
 cd ..
 echo "Cloned."
 
@@ -44,7 +44,7 @@ echo "Cloned."
 echo "Clone fsl-demos. Wait..."
 git clone https://github.com/Freescale/meta-fsl-demos.git -b ${BRANCH}
 cd meta-fsl-demos
-git checkout 7e4237db1f48cbbde776b17a66d71def14e3809e
+git checkout 8359d8d7c84ebdc50f685c447d057efbd9bf0666
 cd ..
 echo "Cloned."
 
@@ -69,7 +69,7 @@ echo "Cloned."
 echo "Clone meta-roj-platform. Wait..."
 git clone https://github.com/ROJ-ITALY/meta-roj-platform.git -b ${BRANCH}
 cd meta-roj-platform
-git checkout 37af1295233bdc05e26c1cda401d49838a47a40a
+git checkout 10a939234cf8deebc32d64aaee2f743afb252585
 cd ..
 echo "Cloned."
 
