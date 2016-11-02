@@ -69,7 +69,7 @@ echo "Cloned."
 echo "Clone meta-roj-platform. Wait..."
 git clone https://github.com/ROJ-ITALY/meta-roj-platform.git -b ${BRANCH}
 cd meta-roj-platform
-git checkout 10a939234cf8deebc32d64aaee2f743afb252585
+git checkout 33ae15791cf62cc7ecf35c4ce52c26f3a832a8f9
 cd ..
 echo "Cloned."
 
