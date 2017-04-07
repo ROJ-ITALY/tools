@@ -1,76 +1,19 @@
-#! /bin/sh
-#
-# Creates a new build tree for Yocto Project
-#
+#! /bin/bash
 
 BRANCH=krogoth
-DEST=${HOME}/yocto-${BRANCH}-smarc
+DEST=${HOME}/yocto-${BRANCH}-roj-demokit
 
 mkdir ${DEST}
 cd ${DEST}
-mkdir sources
+
+git clone https://github.com/ROJ-ITALY/sources.git -b $BRANCH
 cd sources
+git submodule init
+git submodule update
 
-echo "Clone repositories."
-
-echo "Clone poky. Wait..."
-git clone git://git.yoctoproject.org/poky.git -b ${BRANCH}
-cd poky
-git checkout e8898f018862e7e398ea84732a11630e30fb2ceb
-cd ..
-echo "Cloned."
-
-echo "Clone meta-openembedded. Wait..."
-git clone git://git.openembedded.org/meta-openembedded -b ${BRANCH}
-cd meta-openembedded
-git checkout 2092396f0e4fd3891b398c7180528aba67e1d522
-cd ..
-echo "Cloned."
-
-echo "Clone fsl-arm. Wait..."
-git clone https://github.com/Freescale/meta-fsl-arm.git -b ${BRANCH}
-cd meta-fsl-arm
-git checkout a3a91dc1ef6d1dc42e284248b09dd474ba2cef80
-cd ..
-echo "Cloned."
-
-echo "Clone fsl-arm-extra. Wait..."
-git clone https://github.com/Freescale/meta-fsl-arm-extra.git -b ${BRANCH}
-cd meta-fsl-arm-extra
-git checkout 698cf389aa446244a39b597fbf58be1d55096500
-cd ..
-echo "Cloned."
-
-echo "Clone fsl-demos. Wait..."
-git clone https://github.com/Freescale/meta-fsl-demos.git -b ${BRANCH}
-cd meta-fsl-demos
-git checkout 8359d8d7c84ebdc50f685c447d057efbd9bf0666
-cd ..
-echo "Cloned."
-
-echo "Clone fsl-community-bsp-base. Wait..."
-git clone https://github.com/Freescale/fsl-community-bsp-base.git -b ${BRANCH}
-cd fsl-community-bsp-base
-git checkout 3f3f63f5dd6bc62cbe7ea8ba779a07754bec4584
-cd ..
 mkdir base
-cp -R fsl-community-bsp-base/* base/
+cp -R roj-community-bsp-base/* base/
 cp base/README ../README
 cp base/setup-environment ../setup-environment
-echo "Cloned."
 
-echo "Clone meta-qt5. Wait..."
-git clone https://github.com/meta-qt5/meta-qt5.git -b ${BRANCH}
-cd meta-qt5
-git checkout d715f2c1d340fa38f8a9860acc73de5e14a38b75
-cd ..
-echo "Cloned."
-
-echo "Clone meta-roj-platform. Wait..."
-git clone https://github.com/ROJ-ITALY/meta-roj-platform.git -b ${BRANCH}
-cd meta-roj-platform
-git checkout 4610ca57a27bc1c44df91f52fa60c6f3db2ff6a0
-cd ..
-echo "Cloned."
-
-echo "Clone repositories end."
+echo "Yocto environment created."
