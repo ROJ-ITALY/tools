@@ -1,7 +1,7 @@
 #! /bin/bash
 
 BRANCH=krogoth
-DEST=${HOME}/yocto-${BRANCH}-roj-demokit
+DEST=${HOME}/yocto-roj-demokit-${BRANCH}
 
 mkdir ${DEST}
 cd ${DEST}
