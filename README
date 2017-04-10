@@ -6,40 +6,21 @@ Steps to preparing the HOST PC and install Yocto:
 3) install Ubuntu 14.04.4 in your VM
 4) check that VM is connected to internet (mandatory)
 5) install git with the command: sudo apt-get install git
-6) clone tools repo with the command: git clone https://github.com/ROJ-ITALY/tools.git -b krogoth (*1)
+6) clone tools repo with the command: git clone https://github.com/ROJ-ITALY/tools.git -b gt5-bonas-krogoth (*1)
 7) change dir to tools (cd tools) and run these scripts in this order:
 	a) ./download_packages
-	b) ./create-yocto-krogoth-smarc
+	b) ./create-yocto-environment
 
 Steps to configuring Yocto first time:
 
 1) set up the right environment for the build:
-	a) cd $HOME/yocto-krogoth-roj-demokit
+	a) cd $HOME/yocto-gt5-bonas-krogoth
 	b) MACHINE=mx6qroj source ./setup-environment build_mx6qroj (*2)
-
-Steps to build your first image:
-
-Now that you're ready to start the compilation. Launch the build of the three basic components of a linux system: bootloader, kernel, filesystem. This build includes many tasks and the first time will take about 1 hour on a virtual machine based on an i7 CPU.
-In your Yocto environment, run the command: bitbake core-image-minimal
-Once the build finished, you will find the output images under: $HOME/yocto-krogoth-roj-demokit/build_mx6qroj/tmp/deploy/images/mx6qroj
-
-Transfer the root file system (core-image-minimal just compiled)
-
-1) SD
-In order to transfer the image to a SD card, plug a SD card reader with your SD on HOST PC and follow the next steps changing sdX for your detected device:
-
-	cd $HOME/yocto-krogoth-roj-demokit/build_mx6qroj/tmp/deploy/images/mx6qroj
-	gunzip -k core-image-minimal-mx6qroj-xxxxxxxxxxxxxx.rootfs.sdcard.gz
-	sudo dd if=core-image-minimal-mx6qroj-xxxxxxxxxxxxxx.rootfs.sdcard of=/dev/sdX bs=10M
-	sync
-2) eMMC
-In order to transfer the image to eMMC, you can use Manufacturing Tool customized for our iMx6 platforms (quad/dual and solo) by ROJ.
 
 ---------------------	
 Note:
 (*1) tools dir contains some useful shell scripts in order to prepare the Host system to use Yocto Project.
 (*2) in order to compile for SMARC based on "iMx6 solo" use this command: MACHINE=mx6sroj source ./setup-environment build_mx6sroj. ATTENTION: You have to specify MACHINE name just the first time.
-
 ---------------------
 
 (c) 2017, Stefano Gurrieri, ROJ
