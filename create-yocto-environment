@@ -1,6 +1,6 @@
 #! /bin/bash
 
-BRANCH=gt5-bonas-krogoth
+BRANCH=gt5-wuxi-krogoth
 DEST=${HOME}/yocto-${BRANCH}
 
 mkdir ${DEST}
