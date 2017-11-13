@@ -1,6 +1,6 @@
 #! /bin/bash
 
-BRANCH=gt5-wuxi-krogoth
+BRANCH=lcc-morty
 DEST=${HOME}/yocto-${BRANCH}
 
 mkdir ${DEST}
@@ -10,10 +10,11 @@ git clone https://github.com/ROJ-ITALY/sources.git -b $BRANCH
 cd sources
 git submodule init
 git submodule update
+cd ..
 
-mkdir base
-cp -R roj-community-bsp-base/* base/
-cp base/README ../README
-cp base/setup-environment ../setup-environment
+ln -s sources/fsl-community-bsp-base/README README
+ln -s sources/fsl-community-bsp-base/setup-environment setup-environment
+ln -s sources/meta-fsl-bsp-release/imx/README README-IMXBSP
+ln -s sources/meta-fsl-bsp-release/imx/tools/fsl-setup-release.sh fsl-setup-release.sh
 
 echo "Yocto environment created."
