@@ -1,7 +1,8 @@
 #! /bin/sh
 #
-# Download packages to use Yocto Project
+# Download packages to use Yocto Project. This packages have to be also checked on the new Ubuntu 16.04 machine.
 #
+
 
 echo "Set the default shell to bash. Not use dash."
 sudo dpkg-reconfigure dash
