@@ -8,7 +8,7 @@ Steps to preparing the HOST PC and install Yocto for LCC Low Cost Controller VDW
 5) install git with the command: sudo apt-get install git
 6) clone tools repo with the command: git clone https://github.com/ROJ-ITALY/tools.git -b lcc-morty (*1)
 7) change dir to tools (cd tools) and run these scripts in this order:
-	a) ./download_packages (working in progress...packages to check! This script will be updated asap)
+	a) ./download_packages
 	b) ./create-yocto-environment
 
 Steps to configuring Yocto for LCC VDW:
@@ -31,7 +31,7 @@ Note:
 
 (*2) You have to run this command only the first time; for the next times is sufficient enter:
 		source ./setup-environment bld_lcc_normal
-		or
+	or
 		source ./setup-environment bld_lcc_fbk
 
 ---

@@ -1,20 +1,33 @@
 #! /bin/bash
 
+message ()
+{
+	echo -e "\e[94m$1\e[39m"
+}
+
+error ()
+{
+	echo -e "\e[91m$1\e[39m"
+}
+
 BRANCH=lcc-morty
 DEST=${HOME}/yocto-${BRANCH}
 
 mkdir ${DEST}
 cd ${DEST}
 
+message "Clone repositories"
 git clone https://github.com/ROJ-ITALY/sources.git -b $BRANCH
 cd sources
 git submodule init
 git submodule update
 cd ..
 
+message "Create link"
 ln -s sources/fsl-community-bsp-base/README README
 ln -s sources/fsl-community-bsp-base/setup-environment setup-environment
 ln -s sources/meta-fsl-bsp-release/imx/README README-IMXBSP
 ln -s sources/meta-fsl-bsp-release/imx/tools/fsl-setup-release.sh fsl-setup-release.sh
 
-echo "Yocto environment created."
+message "Yocto environment created"
+
