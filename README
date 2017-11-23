@@ -16,14 +16,14 @@ Below the steps to configuring Yocto for ROJ demokit:
 SMARC based on i.MX6 Quad/Dual
 	a) cd $HOME/yocto-enuc-morty
 	b) MACHINE=imx6qenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_qd_enuc (*2)
-	c) replace the content of the file bld_qd_enuc/conf/bblayers.conf with bblayers-demokit.conf
-	d) replace the content of the file bld_qd_enuc/conf/local.conf with local-demokit.conf
+	c) replace the content of the file bld_qd_enuc/conf/bblayers.conf with bblayers-roj-platform.conf
+	d) replace the content of the file bld_qd_enuc/conf/local.conf with local-qd.conf
 
 SMARC based on i.MX6 solo
 	a) cd $HOME/yocto-enuc-morty
 	b) MACHINE=imx6soloenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_solo_enuc (*2)
-	c) replace the content of the file bld_qd_enuc/conf/bblayers.conf with bblayers-demokit.conf
-	d) replace the content of the file bld_qd_enuc/conf/local.conf with local-demokit.conf
+	c) replace the content of the file bld_solo_enuc/conf/bblayers.conf with bblayers-roj-platform.conf
+	d) replace the content of the file bld_solo_enuc/conf/local.conf with local-solo.conf
 
 ---------------------	
 Note:
