@@ -8,7 +8,8 @@ echo "Set the default shell to bash. Not use dash."
 sudo dpkg-reconfigure dash
 
 echo "Install packages to support Yocto Project."
-sudo apt-get install sed wget cvs subversion git-core coreutils unzip texi2html texinfo libsdl1.2-dev docbook-utils gawk python-pysqlite2 diffstat help2man make gcc build-essential g++ \
-desktop-file-utils chrpath libgl1-mesa-dev libglu1-mesa-dev mercurial autoconf automake groff libtool xterm lzop vim ssh screen xz-utils meld geany picocom minicom u-boot-tools libncurses5-dev \
-xinetd tftpd tftp nfs-common nfs-kernel-server
+sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping
+sudo apt-get install make xsltproc docbook-utils fop dblatex xmlto
+sudo apt-get install python-git
+sudo apt-get install libncurses5-dev
 

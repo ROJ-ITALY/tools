@@ -1,38 +1,38 @@
 
-Steps to preparing the HOST PC and install Yocto for LCC Low Cost Controller VDW:
+Steps to preparing the HOST PC and install Yocto for SMARC + eNUC (ROJ demokit):
 
 1) download Ubuntu 16.04
 2) download VirtualBox and setup Virtual Machine (VM)
 3) install Ubuntu 16.04 in your VM
 4) check that VM is connected to internet (mandatory)
 5) install git with the command: sudo apt-get install git
-6) clone tools repo with the command: git clone https://github.com/ROJ-ITALY/tools.git -b lcc-morty (*1)
+6) clone tools repo with the command: git clone https://github.com/ROJ-ITALY/tools.git -b morty (*1)
 7) change dir to tools (cd tools) and run these scripts in this order:
-	a) ./download_packages (working in progress...packages to check! This script will be updated asap)
+	a) ./download_packages
 	b) ./create-yocto-environment
 
-Steps to configuring Yocto for LCC VDW:
+Below the steps to configuring Yocto for ROJ demokit:
 
-1) set up the right environment for the build (normal system):
-	a) cd $HOME/yocto-lcc-morty
-	b) MACHINE=imxsololcc DISTRO=fsl-imx-x11 source ./fsl-setup-release.sh -b bld_lcc_normal (*2)
-	c) replace the content of the file bld_lcc_normal/conf/bblayers.conf with bblayers-normal.conf
-	d) replace the content of the file bld_lcc_normal/conf/local.conf with local-normal.conf
+SMARC based on i.MX6 Quad/Dual
+	a) cd $HOME/yocto-enuc-morty
+	b) MACHINE=imx6qenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_qd_enuc (*2)
+	c) replace the content of the file bld_qd_enuc/conf/bblayers.conf with bblayers-demokit.conf
+	d) replace the content of the file bld_qd_enuc/conf/local.conf with local-demokit.conf
 
-2) set up the right environment for the build (fbk system):
-	a) cd $HOME/yocto-lcc-morty
-	b) MACHINE=imxsololcc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_lcc_fbk (*2)
-	c) replace the content of the file bld_lcc_fbk/conf/bblayers.conf with bblayers-fbk.conf
-	d) replace the content of the file bld_lcc_fbk/conf/local.conf with local-fbk.conf
+SMARC based on i.MX6 solo
+	a) cd $HOME/yocto-enuc-morty
+	b) MACHINE=imx6soloenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_solo_enuc (*2)
+	c) replace the content of the file bld_qd_enuc/conf/bblayers.conf with bblayers-demokit.conf
+	d) replace the content of the file bld_qd_enuc/conf/local.conf with local-demokit.conf
 
 ---------------------	
 Note:
 (*1) tools dir contains some useful shell scripts in order to prepare the Host system to use Yocto Project.
 
 (*2) You have to run this command only the first time; for the next times is sufficient enter:
-		source ./setup-environment bld_lcc_normal
-		or
-		source ./setup-environment bld_lcc_fbk
+		source ./setup-environment bld_qd_enuc
+	or
+		source ./setup-environment bld_solo_enuc
 
 ---
 (c) 2017, Stefano Gurrieri, ROJ
