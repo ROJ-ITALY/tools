@@ -10,7 +10,7 @@ error ()
 	echo -e "\e[91m$1\e[39m"
 }
 
-BRANCH=lcc-morty
+BRANCH=gt5-morty
 DEST=${HOME}/yocto-${BRANCH}
 
 mkdir ${DEST}
