@@ -4,7 +4,7 @@
 #
 
 echo "Install packages to support Yocto Project."
-sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \
+sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python python3 python3-pip python3-pexpect python-dev \
      xz-utils debianutils iputils-ping
 sudo apt-get install make xsltproc docbook-utils fop dblatex xmlto
 sudo apt-get install python-git
