@@ -17,22 +17,25 @@ SMARC based on i.MX6 Quad/Dual
 	a) cd $HOME/yocto-enuc-morty
 	b) MACHINE=imx6qenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_qd_enuc (*2)
 	c) replace the content of the file bld_qd_enuc/conf/bblayers.conf with bblayers-roj-platform.conf
-	d) replace the content of the file bld_qd_enuc/conf/local.conf with local-qd.conf
+	d) replace the content of the file bld_qd_enuc/conf/local.conf with local-qd.conf (*3)
 
 SMARC based on i.MX6 solo
 	a) cd $HOME/yocto-enuc-morty
 	b) MACHINE=imx6soloenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_solo_enuc (*2)
 	c) replace the content of the file bld_solo_enuc/conf/bblayers.conf with bblayers-roj-platform.conf
-	d) replace the content of the file bld_solo_enuc/conf/local.conf with local-solo.conf
+	d) replace the content of the file bld_solo_enuc/conf/local.conf with local-solo.conf (*3)
 
 ---------------------	
 Note:
-(*1) tools dir contains some useful shell scripts in order to prepare the Host system to use Yocto Project.
+(*1) Tools dir contains some useful shell scripts in order to prepare the Host system to use Yocto Project.
 
 (*2) You have to run this command only the first time; for the next times is sufficient enter:
 		source ./setup-environment bld_qd_enuc
-	or
+	 or
 		source ./setup-environment bld_solo_enuc
 
+(*3) Set DL_DIR (DownLoad DIRectory) variable in local.conf with your local path.
+	 For example: DL_DIR ?= "/home/xxx/downloads/" where "xxx" is your user.
+
 ---
-(c) 2017, Stefano Gurrieri, ROJ
+(c) 2018, Stefano Gurrieri, ROJ
