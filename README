@@ -19,11 +19,17 @@ SMARC based on i.MX6 Quad/Dual
 	c) replace the content of the file bld_qd_enuc/conf/bblayers.conf with bblayers-roj-platform.conf
 	d) replace the content of the file bld_qd_enuc/conf/local.conf with local-qd.conf (*3)
 
-SMARC based on i.MX6 solo
+SMARC based on i.MX6 solo (RAM 512MB)
 	a) cd $HOME/yocto-enuc-morty
 	b) MACHINE=imx6soloenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_solo_enuc (*2)
 	c) replace the content of the file bld_solo_enuc/conf/bblayers.conf with bblayers-roj-platform.conf
 	d) replace the content of the file bld_solo_enuc/conf/local.conf with local-solo.conf (*3)
+
+SMARC based on i.MX6 solo (RAM 1GB --> NEW!)
+	a) cd $HOME/yocto-enuc-morty
+	b) MACHINE=imx6soloenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_solo_enuc (*2)
+	c) replace the content of the file bld_solo_enuc/conf/bblayers.conf with bblayers-roj-platform.conf
+	d) replace the content of the file bld_solo_enuc/conf/local.conf with local-solo-1GB.conf (*3)
 
 ---------------------	
 Note:
