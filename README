@@ -15,7 +15,7 @@ Steps to configuring Yocto for LCC VDW:
 
 1) set up the right environment for the build (normal system):
 	a) cd $HOME/yocto-lcc-morty
-	b) MACHINE=imx6sololcc DISTRO=fsl-imx-x11 source ./fsl-setup-release.sh -b bld_lcc_normal (*2)
+	b) MACHINE=imx6sololcc/imx6qlcc DISTRO=fsl-imx-x11 source ./fsl-setup-release.sh -b bld_lcc_normal (*2)
 	c) replace the content of the file bld_lcc_normal/conf/bblayers.conf with bblayers-normal.conf
 	d) replace the content of the file bld_lcc_normal/conf/local.conf with custom-local.conf
 
@@ -25,12 +25,6 @@ Steps to configuring Yocto for LCC VDW:
 	c) replace the content of the file bld_lcc_fbk/conf/bblayers.conf with bblayers-fbk.conf
 	d) replace the content of the file bld_lcc_fbk/conf/local.conf with custom-local.conf
 
-3) set up the right environment for the build (BSP system):
-	a) cd $HOME/yocto-lcc-morty
-	b) MACHINE=imx6sololcc/imx6qlcc DISTRO=fsl-imx-x11 source ./fsl-setup-release.sh -b bld_lcc_bsp (*2)
-	c) replace the content of the file bld_lcc_bsp/conf/bblayers.conf with bblayers-bsp.conf
-	d) replace the content of the file bld_lcc_bsp/conf/local.conf with custom-local.conf
-
 ---------------------	
 Note:
 (*1) tools dir contains some useful shell scripts in order to prepare the Host system to use Yocto Project.
@@ -39,8 +33,6 @@ Note:
 		source ./setup-environment bld_lcc_normal
 	or
 		source ./setup-environment bld_lcc_fbk
-	or
-		source ./setup-environment bld_lcc_bsp
 
 ---
 (c) 2018, Stefano Gurrieri, ROJ
