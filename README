@@ -6,7 +6,7 @@ Steps to preparing the HOST PC and install Yocto for SMARC + eNUC (ROJ demokit):
 3) install Ubuntu 16.04 in your VM
 4) check that VM is connected to internet (mandatory)
 5) install git with the command: sudo apt-get install git
-6) clone tools repo with the command: git clone https://github.com/ROJ-ITALY/tools.git -b morty (*1)
+6) clone tools repo with the command: git clone https://github.com/ROJ-ITALY/tools.git -b thud (*1)
 7) change dir to tools (cd tools) and run these scripts in this order:
 	a) ./download_packages
 	b) ./create-yocto-environment
@@ -14,28 +14,20 @@ Steps to preparing the HOST PC and install Yocto for SMARC + eNUC (ROJ demokit):
 Below the steps to configuring Yocto for ROJ demokit:
 
 SMARC based on i.MX6 Quad/Dual
-	a) cd $HOME/yocto-enuc-morty
+	a) cd $HOME/yocto-enuc-thud
 	b) MACHINE=imx6qenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_qd_enuc (*2)
-	c) replace the content of the file bld_qd_enuc/conf/bblayers.conf with bblayers-roj-platform.conf
-	d) replace the content of the file bld_qd_enuc/conf/local.conf with local-qd.conf (*3)
 
 SMARC based on i.MX6 Quad (RAM 2GB --> NEW!)
-	a) cd $HOME/yocto-enuc-morty
+	a) cd $HOME/yocto-enuc-thud
 	b) MACHINE=imx6qenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_qd_enuc (*2)
-	c) replace the content of the file bld_qd_enuc/conf/bblayers.conf with bblayers-roj-platform.conf
-	d) replace the content of the file bld_qd_enuc/conf/local.conf with local-quad-2GB.conf (*3)
 
 SMARC based on i.MX6 solo (RAM 512MB)
-	a) cd $HOME/yocto-enuc-morty
+	a) cd $HOME/yocto-enuc-thud
 	b) MACHINE=imx6soloenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_solo_enuc (*2)
-	c) replace the content of the file bld_solo_enuc/conf/bblayers.conf with bblayers-roj-platform.conf
-	d) replace the content of the file bld_solo_enuc/conf/local.conf with local-solo.conf (*3)
 
 SMARC based on i.MX6 solo (RAM 1GB)
-	a) cd $HOME/yocto-enuc-morty
+	a) cd $HOME/yocto-enuc-thud
 	b) MACHINE=imx6soloenuc DISTRO=fsl-imx-fb source ./fsl-setup-release.sh -b bld_solo_enuc (*2)
-	c) replace the content of the file bld_solo_enuc/conf/bblayers.conf with bblayers-roj-platform.conf
-	d) replace the content of the file bld_solo_enuc/conf/local.conf with local-solo-1GB.conf (*3)
 
 ---------------------	
 Note:
@@ -46,8 +38,7 @@ Note:
 	 or
 		source ./setup-environment bld_solo_enuc
 
-(*3) Set DL_DIR (DownLoad DIRectory) variable in local.conf with your local path.
-	 For example: DL_DIR ?= "/home/xxx/downloads/" where "xxx" is your user.
+(*) Set DL_DIR (DownLoad DIRectory) variable in local.conf with your local path. For example: DL_DIR ?= "/home/xxx/downloads/" where "xxx" is your user.
 
 ---
-(c) 2018, Stefano Gurrieri, ROJ
+(c) 2019, Stefano Gurrieri and Paola Martiner, ROJ

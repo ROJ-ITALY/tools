@@ -11,7 +11,7 @@ error ()
 }
 
 
-BRANCH=morty
+BRANCH=thud
 DEST=${HOME}/yocto-enuc-${BRANCH}
 
 mkdir ${DEST}
@@ -22,6 +22,10 @@ git clone https://github.com/ROJ-ITALY/sources.git -b $BRANCH
 cd sources
 git submodule init
 git submodule update
+
+message "Copy base-roj-platform into base dir"
+cp -r base-roj-platform base
+
 cd ..
 
 message "Create link"
@@ -30,4 +34,4 @@ ln -s sources/fsl-community-bsp-base/setup-environment setup-environment
 ln -s sources/meta-fsl-bsp-release/imx/README README-IMXBSP
 ln -s sources/meta-fsl-bsp-release/imx/tools/fsl-setup-release.sh fsl-setup-release.sh
 
-message "Yocto environment created"
+message "Yocto environment created."
